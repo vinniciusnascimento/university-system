@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Teacher {
@@ -6,6 +7,7 @@ public class Teacher {
     private String name;
     private String specialty;
     private BigDecimal wage;
+    private ArrayList<Course> courses = new ArrayList<>();
 
     public Teacher() {
     }
@@ -52,5 +54,9 @@ public class Teacher {
 
     public void setWage(BigDecimal wage) {
         this.wage = wage;
+    }
+
+    public void setCourses(Course course) {
+        this.courses.add(course);
     }
 }

@@ -7,6 +7,7 @@ public class Course {
     private int code;
     ArrayList<Student> students = new ArrayList<>();
     private Teacher teacher;
+    private Room room;
 
 //    Constructors
     public Course() {
@@ -23,9 +24,10 @@ public class Course {
         this.code = code;
     }
 
-    public Course(String name, double workLoad, int code, Teacher teacher) {
+    public Course(String name, double workLoad, int code, Teacher teacher, Room room) {
         this(name, workLoad, code);
         this.teacher = teacher;
+        this.room = room;
     }
 
     //    Methods
@@ -34,6 +36,7 @@ public class Course {
         System.out.println("Código: " + this.code);
         System.out.println("Carga horária: " + this.workLoad);
         System.out.println("Professor: " + this.teacher.getName());
+        System.out.println("Sala: " + this.room.getNumber() + " - Bloco: " + this.room.getBlock());
     }
 
     public void addStudent(Student student) {

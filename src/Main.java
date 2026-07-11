@@ -8,10 +8,11 @@ public class Main {
         universidade.registerStudent("Vinnicius", 17);
         universidade.registerStudent("Victor", 11);
         universidade.registerTeacher("Giba", "Banco de Dados", BigDecimal.valueOf(2000));
-        universidade.registerCourse("Java", 40, 1);
+        universidade.registerRoom(1,20);
+        universidade.registerCourse("Java", 40, 1,1);
 
-        universidade.setStudentInCourse(1,1);
-        universidade.setStudentInCourse(2,1);
+//        universidade.setStudentInCourse(1,1);
+//        universidade.setStudentInCourse(2,1);
 
 //        universidade.getInfos();
 //        universidade.listAllStudentsInCourse(1,1);

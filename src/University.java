@@ -13,8 +13,8 @@ public class University {
         students.add(student);
     }
 
-    public void registerRoom(int number, int block, int capacityMax){
-        int register = students.size() + 1;
+    public void registerRoom(int block, int capacityMax){
+        int number = rooms.size() + 1;
         Room room = new Room(number, block, capacityMax);
         rooms.add(room);
     }
@@ -25,10 +25,11 @@ public class University {
         teachers.add(teacher);
     }
 
-    public void registerCourse(String name, int workLoad, int teacherId){
+    public void registerCourse(String name, int workLoad, int teacherId, int roomId){
         int register = courses.size() + 1;
         Teacher teacher = this.getTeacherById(teacherId);
-        Course course = new Course(name,workLoad,register, teacher);
+        Room room = this.getRoomById(roomId);
+        Course course = new Course(name,workLoad,register, teacher, room);
         courses.add(course);
     }
 
@@ -73,6 +74,15 @@ public class University {
         for (Teacher teacher:teachers){
             if (teacher.getRegistration() == id){
                 return teacher;
+            }
+        }
+        return null;
+    }
+
+    public Room getRoomById(int id){
+        for (Room room:rooms){
+            if (room.getNumber() == id){
+                return room;
             }
         }
         return null;
