@@ -2,44 +2,44 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class Teacher {
-    private String matricula;
-    private String nome;
-    private String especialidade;
-    private BigDecimal salario;
+    private String registration;
+    private String name;
+    private String specialty;
+    private BigDecimal wage;
     {
-        setMatricula(UUID.randomUUID().toString());
+        setRegistration(UUID.randomUUID().toString());
     }
 
 //    Getters and Setters
-    public String getMatricula() {
-        return matricula;
+    public String getRegistration() {
+        return registration;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setRegistration(String registration) {
+        this.registration = registration;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEspecialidade() {
-        return especialidade;
+    public String getSpecialty() {
+        return specialty;
     }
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 
-    public BigDecimal getSalario() {
-        return salario;
+    public BigDecimal getWage() {
+        return wage;
     }
 
-    public void setSalario(BigDecimal salario) {
-        this.salario = salario;
+    public void setWage(BigDecimal wage) {
+        this.wage = wage;
     }
 }
