@@ -13,9 +13,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String registration, int age) {
+    public Student(String name, int age) {
         this.name = name;
-        this.registration = registration;
         this.age = age;
     }
 

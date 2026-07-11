@@ -10,7 +10,16 @@ public class Teacher {
         setRegistration(UUID.randomUUID().toString());
     }
 
-//    Getters and Setters
+    public Teacher() {
+    }
+
+    public Teacher(String name, String specialty, BigDecimal wage) {
+        this.name = name;
+        this.specialty = specialty;
+        this.wage = wage;
+    }
+
+    //    Getters and Setters
     public String getRegistration() {
         return registration;
     }
