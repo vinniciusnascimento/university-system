@@ -13,15 +13,22 @@ public class University {
         students.add(student);
     }
 
+    public void registerRoom(int number, int block, int capacityMax){
+        int register = students.size() + 1;
+        Room room = new Room(number, block, capacityMax);
+        rooms.add(room);
+    }
+
     public void registerTeacher(String name, String especiality, BigDecimal wage){
         int register = teachers.size() + 1;
         Teacher teacher = new Teacher(name, especiality, wage, register);
         teachers.add(teacher);
     }
 
-    public void registerCourse(String name, int workLoad){
+    public void registerCourse(String name, int workLoad, int teacherId){
         int register = courses.size() + 1;
-        Course course = new Course(name,workLoad,register);
+        Teacher teacher = this.getTeacherById(teacherId);
+        Course course = new Course(name,workLoad,register, teacher);
         courses.add(course);
     }
 
@@ -52,7 +59,6 @@ public class University {
 
         course.addStudent(student);
         student.setCourse(course);
-        System.out.println("Adicionado com sucesso!");
     }
 
     public void getStudentById(int id){
@@ -61,6 +67,15 @@ public class University {
                 student.infos();
             }
         }
+    }
+
+    public Teacher getTeacherById(int id){
+        for (Teacher teacher:teachers){
+            if (teacher.getRegistration() == id){
+                return teacher;
+            }
+        }
+        return null;
     }
 
     public Student getStudentByIdReturn(int id){
@@ -72,7 +87,7 @@ public class University {
         return null;
     }
 
-    public Course getCourseByIdReturn(int code){
+    private Course getCourseByIdReturn(int code){
         for (Course course:courses){
             if (course.getCode() == code){
                 return course;
@@ -90,5 +105,17 @@ public class University {
         System.out.println();
         System.out.println("--- Teachers ---");
         getAllTeachers();
+    }
+
+    public void listAllStudentsInCourse(int idStudent, int idCourse){
+        Student student = getStudentByIdReturn(idStudent);
+        Course course = getCourseByIdReturn(idCourse);
+        System.out.println("--- Alunos no Curso de " + course.getName() + " ---");
+
+        course.getStudents();
+    }
+
+    public void infoCourse(int id){
+        this.getCourseByIdReturn(id).infos();
     }
 }

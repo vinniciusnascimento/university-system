@@ -6,6 +6,7 @@ public class Course {
     private double workLoad;
     private int code;
     ArrayList<Student> students = new ArrayList<>();
+    private Teacher teacher;
 
 //    Constructors
     public Course() {
@@ -22,11 +23,17 @@ public class Course {
         this.code = code;
     }
 
+    public Course(String name, double workLoad, int code, Teacher teacher) {
+        this(name, workLoad, code);
+        this.teacher = teacher;
+    }
+
     //    Methods
     public void infos(){
         System.out.println("----- Infos curso " + this.name + " -----");
         System.out.println("Código: " + this.code);
         System.out.println("Carga horária: " + this.workLoad);
+        System.out.println("Professor: " + this.teacher.getName());
     }
 
     public void addStudent(Student student) {
@@ -62,5 +69,13 @@ public class Course {
         for (Student student:students){
             System.out.println(student.getName());
         }
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }
