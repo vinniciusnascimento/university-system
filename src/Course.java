@@ -1,27 +1,36 @@
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Course {
     private String name;
     private double workLoad;
-    private String code;
-    {
-        setCode(UUID.randomUUID().toString());
-    }
+    private int code;
+    ArrayList<Student> students = new ArrayList<>();
 
 //    Constructors
     public Course() {
     }
 
-//    Methods
+    public Course(String name, double workLoad) {
+        this.name = name;
+        this.workLoad = workLoad;
+    }
+
+    public Course(String name, double workLoad, int code) {
+        this.name = name;
+        this.workLoad = workLoad;
+        this.code = code;
+    }
+
+    //    Methods
     public void infos(){
         System.out.println("----- Infos curso " + this.name + " -----");
         System.out.println("Código: " + this.code);
         System.out.println("Carga horária: " + this.workLoad);
     }
 
-    public Course(String name, double workLoad) {
-        this.name = name;
-        this.workLoad = workLoad;
+    public void addStudent(Student student) {
+        students.add(student);
     }
 
     //    Getters and Setters
@@ -41,11 +50,17 @@ public class Course {
         this.workLoad = workLoad;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
+    }
+
+    public void getStudents() {
+        for (Student student:students){
+            System.out.println(student.getName());
+        }
     }
 }

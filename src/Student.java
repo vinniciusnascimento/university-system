@@ -2,13 +2,9 @@ import java.util.UUID;
 
 public class Student {
     private String name;
-    private String registration;
+    private int registration;
     private int age;
     private Course course;
-
-    {
-        setRegistration(UUID.randomUUID().toString());
-    }
 
 //    Constructors
     public Student() {
@@ -24,13 +20,20 @@ public class Student {
         this.course = course;
     }
 
-//    Method
+    public Student(String name, int age, int registration) {
+        this(name, age);
+        this.registration = registration;
+    }
+
+    //    Method
     public void infos(){
         System.out.println("--- Aluno ---");
         System.out.println("Nome: " + this.name);
         System.out.println("Idade: " + this.age);
         System.out.println("Matrícula: " + this.registration);
-        System.out.println("Curso: " + this.course.getName());
+        if (this.course != null){
+            System.out.println("Curso: " + this.course.getName());
+        }
     }
 
     //    Getters and Setters
@@ -42,11 +45,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getRegistration() {
+    public int getRegistration() {
         return registration;
     }
 
-    public void setRegistration(String registration) {
+    public void setRegistration(int registration) {
         this.registration = registration;
     }
 
@@ -56,5 +59,13 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

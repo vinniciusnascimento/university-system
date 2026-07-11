@@ -2,13 +2,10 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class Teacher {
-    private String registration;
+    private int registration;
     private String name;
     private String specialty;
     private BigDecimal wage;
-    {
-        setRegistration(UUID.randomUUID().toString());
-    }
 
     public Teacher() {
     }
@@ -19,12 +16,17 @@ public class Teacher {
         this.wage = wage;
     }
 
+    public Teacher(String name, String specialty, BigDecimal wage, int registration) {
+        this(name, specialty, wage);
+        this.registration = registration;
+    }
+
     //    Getters and Setters
-    public String getRegistration() {
+    public int getRegistration() {
         return registration;
     }
 
-    public void setRegistration(String registration) {
+    public void setRegistration(int registration) {
         this.registration = registration;
     }
 
