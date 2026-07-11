@@ -31,6 +31,15 @@ public class University {
         return students;
     }
 
+    public Student getStudent(String register) {
+        for (Student student:students){
+            if (student.getRegistration().equals(register)){
+                return student;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Course> getAllCourses(){
         return courses;
     }

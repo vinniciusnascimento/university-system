@@ -4,6 +4,7 @@ public class Student {
     private String name;
     private String registration;
     private int age;
+    private Course course;
 
     {
         setRegistration(UUID.randomUUID().toString());
@@ -16,6 +17,20 @@ public class Student {
     public Student(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Student(String name, int age, Course course) {
+        this(name, age);
+        this.course = course;
+    }
+
+//    Method
+    public void infos(){
+        System.out.println("--- Aluno ---");
+        System.out.println("Nome: " + this.name);
+        System.out.println("Idade: " + this.age);
+        System.out.println("Matrícula: " + this.registration);
+        System.out.println("Curso: " + this.course.getName());
     }
 
     //    Getters and Setters
