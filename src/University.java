@@ -22,8 +22,8 @@ public class University {
         rooms.add(room);
     }
 
-    public void registerCourse(String name, int workLoad, String code){
-        Course course = new Course(name,workLoad,code);
+    public void registerCourse(String name, int workLoad){
+        Course course = new Course(name,workLoad);
         courses.add(course);
     }
 

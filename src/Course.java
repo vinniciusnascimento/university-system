@@ -12,10 +12,16 @@ public class Course {
     public Course() {
     }
 
-    public Course(String name, double workLoad, String code) {
+//    Methods
+    public void infos(){
+        System.out.println("----- Infos curso " + this.name + " -----");
+        System.out.println("Código: " + this.code);
+        System.out.println("Carga horária: " + this.workLoad);
+    }
+
+    public Course(String name, double workLoad) {
         this.name = name;
         this.workLoad = workLoad;
-        this.code = code;
     }
 
     //    Getters and Setters
