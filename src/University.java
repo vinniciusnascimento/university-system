@@ -40,7 +40,7 @@ public class University {
         courses.add(course);
     }
 
-    public void getAllCourses(){
+    public void printAllCourses(){
         System.out.println("--- Get All Courses ---");
         for (Course course:courses){
             System.out.print(course.getName() + " - " + course.getCode() + " - " + course.getWorkLoad() + "h");
@@ -48,7 +48,7 @@ public class University {
         }
     }
 
-    public void getAllStudents(){
+    public void printAllStudents(){
         for (Student student:students){
             System.out.println("--- Aluno: " + student.getName() + " ---");
             System.out.println(student.getName() + " - " + student.getRegistration());
@@ -57,7 +57,7 @@ public class University {
         }
     }
 
-    public void getAllTeachers(){
+    public void printAllTeachers(){
         for (Teacher teacher:teachers){
             System.out.println("--- " + teacher.getName() + " ---");
             System.out.println(teacher.getName() + " - " + teacher.getRegistration());
@@ -95,7 +95,7 @@ public class University {
         teacher.setCourses(course);
     }
 
-    public void getStudentById(int id){
+    public void printStudentById(int id){
         for (Student student:students){
             if (student.getRegistration() == id){
                 student.infos();
@@ -143,13 +143,13 @@ public class University {
 
     public void getInfos(){
         System.out.println("--- Cursos ---");
-        this.getAllCourses();
+        this.printAllCourses();
         System.out.println();
         System.out.println("--- Alunos ---");
-        this.getAllStudents();
+        this.printAllStudents();
         System.out.println();
         System.out.println("--- Teachers ---");
-        getAllTeachers();
+        printAllTeachers();
     }
 
     public void listAllStudentsInCourse(int idCourse){

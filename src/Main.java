@@ -14,6 +14,6 @@ public class Main {
         universidade.registerCourse("Java", 40, 1,1);
         universidade.registerCourse("Python", 40, 1,2);
 
-        universidade.getAllTeachers();
+        universidade.printAllTeachers();
     }
 }
