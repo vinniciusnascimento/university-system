@@ -61,9 +61,7 @@ public class University {
         for (Teacher teacher:teachers){
             System.out.println("--- " + teacher.getName() + " ---");
             System.out.println(teacher.getName() + " - " + teacher.getRegistration());
-            for (Teacher teacher1:teachers){
-                teacher1.getCourses();
-            }
+            teacher.getCourses();
             System.out.println();
         }
     }
