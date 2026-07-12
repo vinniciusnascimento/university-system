@@ -31,11 +31,44 @@ public class Course {
 
     //    Methods
     public void infos(){
-        System.out.println("----- Infos curso " + this.name + " -----");
+        System.out.println("=================================================");
+        System.out.println();
+        System.out.println("CURSO: " + this.name);
+        System.out.println();
         System.out.println("Código: " + this.code);
-        System.out.println("Carga horária: " + this.workLoad);
-        System.out.println("Professor: " + this.teacher.getName());
-        System.out.println("Sala: " + this.room.getNumber() + " - Bloco: " + this.room.getBlock());
+        System.out.println();
+        System.out.println("Carga Horária: " + (int) this.workLoad + " horas");
+        System.out.println();
+
+        System.out.println("Professor");
+        System.out.println("-------------------------");
+        System.out.println("Nome: " + this.teacher.getName());
+        System.out.println("Especialidade: " + this.teacher.getSpecialty());
+        System.out.println();
+
+        System.out.println("Sala");
+        System.out.println("-------------------------");
+        System.out.println("Bloco: " + this.room.getBlock());
+        System.out.println("Sala: " + this.room.getNumber());
+        System.out.println("Capacidade: " + this.room.getCapacityMax());
+        System.out.println();
+
+        System.out.println("Alunos Matriculados");
+        System.out.println("-------------------------");
+        System.out.println();
+
+        if (students.isEmpty()) {
+            System.out.println("Nenhum aluno matriculado.");
+        } else {
+            for (Student student : students) {
+                System.out.printf("%03d - %s%n", student.getRegistration(), student.getName());
+            }
+        }
+
+        System.out.println();
+        System.out.println("Quantidade de alunos: " + students.size());
+        System.out.println();
+        System.out.println("=================================================");
     }
 
     public void addStudent(Student student) {
