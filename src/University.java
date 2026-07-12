@@ -27,16 +27,16 @@ public class University {
 
     public void registerCourse(String name, int workLoad, int teacherId, int roomId){
         int register = courses.size() + 1;
-
         Teacher teacher = this.getTeacherById(teacherId);
         Room room = this.getRoomById(roomId);
-        Course course = new Course(name,workLoad,register, teacher, room);
 
         if (teacher == null || room == null) {
             System.out.println("Professor ou sala inválidos. Curso não criado.");
             return;
         }
 
+        Course course = new Course(name,workLoad,register, teacher, room);
+        teacher.setCourses(course);
         courses.add(course);
     }
 
