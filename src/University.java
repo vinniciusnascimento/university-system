@@ -70,19 +70,18 @@ public class University {
         Student student = getStudentByIdReturn(idStudent);
         Course course = getCourseByIdReturn(idCourse);
 
-        if (course.students != null){
-            if (course.students.size() < course.getRoom().getCapacityMax()){
-                for (Student student1 : course.students) {
-                    if (student1 == student){
-                        System.out.println("Estudante já cadastrado nesse curso!");
-                        return;
-                    }
+        if (course.students.size() < course.getRoom().getCapacityMax()){
+            for (Student student1 : course.students) {
+                if (student1 == student){
+                    System.out.println("Estudante já cadastrado nesse curso!");
+                    return;
                 }
-            } else{
-                System.out.println("Capacidade máxima atingida");
-                return;
             }
+        } else{
+            System.out.println("Capacidade máxima atingida");
+            return;
         }
+
         course.addStudent(student);
         student.setCourse(course);
         System.out.println("Feito com sucesso!");
