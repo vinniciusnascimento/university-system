@@ -52,7 +52,7 @@ public class University {
         for (Student student:students){
             System.out.println("--- Aluno: " + student.getName() + " ---");
             System.out.println(student.getName() + " - " + student.getRegistration());
-            student.getCourse();
+            student.printCourse();
             System.out.println();
         }
     }
@@ -61,7 +61,7 @@ public class University {
         for (Teacher teacher:teachers){
             System.out.println("--- " + teacher.getName() + " ---");
             System.out.println(teacher.getName() + " - " + teacher.getRegistration());
-            teacher.getCourses();
+            teacher.printCourses();
             System.out.println();
         }
     }
@@ -69,6 +69,11 @@ public class University {
     public void setStudentInCourse(int idStudent, int idCourse){
         Student student = getStudentByIdReturn(idStudent);
         Course course = getCourseByIdReturn(idCourse);
+
+        if (student == null || course == null) {
+            System.out.println("Aluno ou curso inválido!");
+            return;
+        }
 
         if (course.students.size() < course.getRoom().getCapacityMax()){
             for (Student student1 : course.students) {
@@ -90,6 +95,11 @@ public class University {
     public void setTeacherInCourse(int idTeacher, int idCourse){
         Teacher teacher = getTeacherById(idTeacher);
         Course course = getCourseByIdReturn(idCourse);
+
+        if (teacher == null || course == null) {
+            System.out.println("Professor ou curso inválido!");
+            return;
+        }
 
         course.setTeacher(teacher);
         teacher.setCourses(course);
@@ -154,12 +164,25 @@ public class University {
 
     public void listAllStudentsInCourse(int idCourse){
         Course course = getCourseByIdReturn(idCourse);
+
+        if (course == null) {
+            System.out.println("Curso inválido!");
+            return;
+        }
+
         System.out.println("--- Alunos no Curso de " + course.getName() + " ---");
 
-        course.getStudents();
+        course.printStudents();
     }
 
     public void infoCourse(int id){
+        Course course = getCourseByIdReturn(id);
+
+        if (course == null) {
+            System.out.println("Curso inválido!");
+            return;
+        }
+
         this.getCourseByIdReturn(id).infos();
     }
 }

@@ -55,7 +55,7 @@ public class Teacher {
         this.wage = wage;
     }
 
-    public void getCourses() {
+    public void printCourses() {
         for (Course course:courses){
             System.out.println(course.getName());
         }

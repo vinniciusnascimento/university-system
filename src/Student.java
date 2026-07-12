@@ -33,7 +33,7 @@ public class Student {
         System.out.println("Matrícula: " + this.registration);
         if (this.courses != null){
             System.out.println("Curso: ");
-            this.getCourse();
+            this.printCourse();
         }
     }
 
@@ -62,7 +62,7 @@ public class Student {
         this.age = age;
     }
 
-    public void getCourse() {
+    public void printCourse() {
         for (Course course : courses) {
             System.out.println(course.getName());
         }

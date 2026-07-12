@@ -67,7 +67,7 @@ public class Course {
         this.code = code;
     }
 
-    public void getStudents() {
+    public void printStudents() {
         for (Student student:students){
             System.out.println(student.getName());
         }
