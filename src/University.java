@@ -71,7 +71,7 @@ public class University {
         Course course = getCourseByIdReturn(idCourse);
 
         if (course.students != null){
-            if (course.getRoom().getCapacityMax() != course.students.size()){
+            if (course.students.size() < course.getRoom().getCapacityMax()){
                 for (Student student1 : course.students) {
                     if (student1 == student){
                         System.out.println("Estudante já cadastrado nesse curso!");
