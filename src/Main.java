@@ -10,6 +10,7 @@ public class Main {
         universidade.registerTeacher("Giba", "Banco de Dados", BigDecimal.valueOf(2000));
         universidade.registerRoom(1,20);
         universidade.registerCourse("Java", 40, 1,1);
+        universidade.registerCourse("Python", 40, 1,2);
 
 //        universidade.setStudentInCourse(1,1);
 //        universidade.setStudentInCourse(2,1);
@@ -18,5 +19,9 @@ public class Main {
 //        universidade.listAllStudentsInCourse(1,1);
 //        universidade.infoCourse(1);
 //        universidade.getStudentById(1);
+        universidade.setTeacherInCourse(1,1);
+        universidade.setTeacherInCourse(1,2);
+        universidade.getAllCourses();
+        universidade.getAllTeachers();
     }
 }

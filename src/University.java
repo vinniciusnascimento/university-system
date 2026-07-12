@@ -49,7 +49,11 @@ public class University {
 
     public void getAllTeachers(){
         for (Teacher teacher:teachers){
-            System.out.print(teacher.getName() + " - " + teacher.getRegistration() + " - " + teacher.getSpecialty());
+            System.out.println("--- " + teacher.getName() + " ---");
+            System.out.println(teacher.getName() + " - " + teacher.getRegistration());
+            for (Teacher teacher1:teachers){
+                teacher1.getCourses();
+            }
             System.out.println();
         }
     }
@@ -60,6 +64,14 @@ public class University {
 
         course.addStudent(student);
         student.setCourse(course);
+    }
+
+    public void setTeacherInCourse(int idTeacher, int idCourse){
+        Teacher teacher = getTeacherById(idTeacher);
+        Course course = getCourseByIdReturn(idCourse);
+
+        course.setTeacher(teacher);
+        teacher.setCourses(course);
     }
 
     public void getStudentById(int id){

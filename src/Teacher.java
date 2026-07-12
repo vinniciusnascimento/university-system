@@ -56,6 +56,12 @@ public class Teacher {
         this.wage = wage;
     }
 
+    public void getCourses() {
+        for (Course course:courses){
+            System.out.println(course.getName());
+        }
+    }
+
     public void setCourses(Course course) {
         this.courses.add(course);
     }
