@@ -66,15 +66,21 @@ public class University {
         Course course = getCourseByIdReturn(idCourse);
 
         if (course.students != null){
-            for (Student student1 : course.students) {
-                if (student1 == student){
-                    System.out.println("Estudante já cadastrado nesse curso!");
-                    return;
+            if (course.getRoom().getCapacityMax() != course.students.size()){
+                for (Student student1 : course.students) {
+                    if (student1 == student){
+                        System.out.println("Estudante já cadastrado nesse curso!");
+                        return;
+                    }
                 }
+            } else{
+                System.out.println("Capacidade máxima atingida");
+                return;
             }
         }
-            course.addStudent(student);
-            student.setCourse(course);
+        course.addStudent(student);
+        student.setCourse(course);
+        System.out.println("Feito com sucesso!");
     }
 
     public void setTeacherInCourse(int idTeacher, int idCourse){
@@ -89,8 +95,10 @@ public class University {
         for (Student student:students){
             if (student.getRegistration() == id){
                 student.infos();
+                return;
             }
         }
+        System.out.println("Aluno não cadastrado!");
     }
 
     public Teacher getTeacherById(int id){
