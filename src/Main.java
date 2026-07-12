@@ -10,9 +10,8 @@ public class Main {
 
         universidade.registerTeacher("Giba", "Banco de Dados", BigDecimal.valueOf(2000));
         universidade.registerRoom(1,2);
+        universidade.registerRoom(2,2);
         universidade.registerCourse("Java", 40, 1,1);
         universidade.registerCourse("Python", 40, 1,2);
-
-        universidade.getStudentById(2);
     }
 }
