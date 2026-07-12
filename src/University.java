@@ -34,6 +34,7 @@ public class University {
     }
 
     public void getAllCourses(){
+        System.out.println("--- Get All Courses ---");
         for (Course course:courses){
             System.out.print(course.getName() + " - " + course.getCode() + " - " + course.getWorkLoad() + "h");
             System.out.println();
@@ -42,7 +43,9 @@ public class University {
 
     public void getAllStudents(){
         for (Student student:students){
-            System.out.print(student.getName() + " - " + student.getRegistration() + " - " + student.getCourse().getName());
+            System.out.println("--- Aluno: " + student.getName() + " ---");
+            System.out.println(student.getName() + " - " + student.getRegistration());
+            student.getCourse();
             System.out.println();
         }
     }
@@ -62,8 +65,16 @@ public class University {
         Student student = getStudentByIdReturn(idStudent);
         Course course = getCourseByIdReturn(idCourse);
 
-        course.addStudent(student);
-        student.setCourse(course);
+        if (course.students != null){
+            for (Student student1 : course.students) {
+                if (student1 == student){
+                    System.out.println("Estudante já cadastrado nesse curso!");
+                    return;
+                }
+            }
+        }
+            course.addStudent(student);
+            student.setCourse(course);
     }
 
     public void setTeacherInCourse(int idTeacher, int idCourse){
@@ -129,8 +140,7 @@ public class University {
         getAllTeachers();
     }
 
-    public void listAllStudentsInCourse(int idStudent, int idCourse){
-        Student student = getStudentByIdReturn(idStudent);
+    public void listAllStudentsInCourse(int idCourse){
         Course course = getCourseByIdReturn(idCourse);
         System.out.println("--- Alunos no Curso de " + course.getName() + " ---");
 

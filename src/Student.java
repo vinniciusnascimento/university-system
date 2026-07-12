@@ -1,10 +1,10 @@
-import java.util.UUID;
+import java.util.ArrayList;
 
 public class Student {
     private String name;
     private int registration;
     private int age;
-    private Course course;
+    ArrayList<Course> courses = new ArrayList<>();
 
 //    Constructors
     public Student() {
@@ -17,7 +17,7 @@ public class Student {
 
     public Student(String name, int age, Course course) {
         this(name, age);
-        this.course = course;
+        this.setCourse(course);
     }
 
     public Student(String name, int age, int registration) {
@@ -31,8 +31,9 @@ public class Student {
         System.out.println("Nome: " + this.name);
         System.out.println("Idade: " + this.age);
         System.out.println("Matrícula: " + this.registration);
-        if (this.course != null){
-            System.out.println("Curso: " + this.course.getName());
+        if (this.courses != null){
+            System.out.println("Curso: ");
+            this.getCourse();
         }
     }
 
@@ -61,11 +62,13 @@ public class Student {
         this.age = age;
     }
 
-    public Course getCourse() {
-        return course;
+    public void getCourse() {
+        for (Course course : courses) {
+            System.out.println(course.getName());
+        }
     }
 
     public void setCourse(Course course) {
-        this.course = course;
+        courses.add(course);
     }
 }

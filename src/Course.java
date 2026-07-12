@@ -74,6 +74,10 @@ public class Course {
         }
     }
 
+    public ArrayList<Student> getStudentsReturn() {
+        return students;
+    }
+
     public Teacher getTeacher() {
         return teacher;
     }
